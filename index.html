@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy New Year, My Love</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            color: white;
+            text-align: center;
+            padding: 40px;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-color: black; /* Solid black background */
+            overflow: hidden;
+            cursor: none; /* Hide default cursor */
+            transition: background 1s ease-in-out;
+        }
+
+        h1 {
+            font-size: 3em;
+            color: #ff6347;
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            animation: fadeIn 1.5s forwards;
+        }
+
+        .quote {
+            font-style: italic;
+            margin: 20px 0;
+            font-size: 1.5em;
+            color: #fffae5;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+            opacity: 0;
+            animation: fadeIn 2s forwards;
+        }
+
+        .message {
+            margin-top: 30px;
+            font-size: 1.8em;
+            color: #ff69b4;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+            opacity: 0;
+            animation: fadeIn 2.5s forwards;
+        }
+
+        .footer {
+            margin-top: 50px;
+            font-size: 1.3em;
+            color: #ffebcd;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+            opacity: 0;
+            animation: fadeIn 3s forwards;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+            .quote {
+                font-size: 1.3em;
+            }
+            .message {
+                font-size: 1.5em;
+            }
+            .footer {
+                font-size: 1.1em;
+            }
+            body {
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2em;
+            }
+            .quote {
+                font-size: 1.1em;
+            }
+            .message {
+                font-size: 1.3em;
+            }
+            .footer {
+                font-size: 1em;
+            }
+            body {
+                padding: 10px;
+            }
+        }
+
+        /* Cursor trail effect */
+        .cursor {
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            width: 20px;
+            height: 20px;
+            background-color: #ff6347;
+            border-radius: 50%;
+            pointer-events: none;
+            animation: cursorMove 0.15s ease-out;
+            transform: translate(-50%, -50%);
+            opacity: 0.7;
+        }
+
+        @keyframes cursorMove {
+            0% {
+                transform: translate(-50%, -50%) scale(0.8);
+                opacity: 0.7;
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.4);
+                opacity: 0.6;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 0.7;
+            }
+        }
+
+        /* Removing rainbow background gradient */
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black; /* Solid black background */
+            pointer-events: none;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="background"></div>
+
+    <h1>Happy New Year, M!</h1>
+
+    <p class="quote">"In your eyes, I find home; in your heart, I find peace. Happy New Year!"</p>
+    <p class="quote">"Every moment with you is a treasure, and I can’t wait for more beautiful moments in the coming year."</p>
+    <p class="quote">"May this New Year bring more love, laughter, and happiness into our lives. I am so lucky to have you." </p>
+
+    <p class="message">
+        My dearest M, I wish you a year filled with all the joy and beauty you bring into my life. Here's to another year of making memories together, growing in love, and sharing our dreams. Happy New Year, my heart!
+    </p>
+
+    <div class="footer">
+        With all my love, <br>
+        Dhyani
+    </div>
+
+    <div class="cursor"></div>
+
+    <script>
+        // Handle mouse movement for fluid cursor and background interaction
+        const cursor = document.querySelector('.cursor');
+        const background = document.querySelector('.background');
+
+        window.addEventListener('mousemove', (event) => {
+            let xPos = event.clientX;
+            let yPos = event.clientY;
+
+            cursor.style.left = `${xPos}px`;
+            cursor.style.top = `${yPos}px`;
+
+            // Make the background change color based on mouse position
+            let red = Math.floor((xPos / window.innerWidth) * 255);
+            let green = Math.floor((yPos / window.innerHeight) * 255);
+            let blue = Math.floor(((xPos + yPos) / (window.innerWidth + window.innerHeight)) * 255);
+
+            background.style.background = `linear-gradient(45deg, rgb(${red}, ${green}, ${blue}), black)`;
+        });
+    </script>
+
+</body>
+</html>
